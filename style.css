@@ -1,7 +1,9 @@
+/* ===== BASE ===== */
 html, body {
   margin: 0;
   height: 100%;
   background: #000;
+  overflow: hidden;           /* la page ne défile pas */
 }
 
 #panorama {
@@ -9,6 +11,7 @@ html, body {
   height: 100vh;
 }
 
+/* ===== GLOBE ===== */
 #globe {
   position: absolute;
   top: 0;
@@ -16,8 +19,10 @@ html, body {
   width: 100%;
   height: 100vh;
   z-index: 10;
+  overflow: hidden;
 }
 
+/* Texte en haut du globe */
 #consigne {
   position: absolute;
   top: 20px;
@@ -26,20 +31,109 @@ html, body {
   z-index: 20;
   color: white;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 18px;            /* taille du texte */
   background: rgba(0, 0, 0, 0.5);
   padding: 8px 16px;
   border-radius: 8px;
   pointer-events: none;
 }
 
+/* Bouton "Retour au globe" */
 #retour {
   position: absolute;
   top: 15px;
   right: 15px;
   z-index: 20;
   padding: 10px 16px;
-  font-size: 16px;
+  font-size: 16px;            /* taille du texte du bouton */
   cursor: pointer;
   display: none;
+}
+
+/* ===== INTRODUCTION ===== */
+#intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.intro-boite {
+  max-width: 600px;
+  max-height: 80vh;           /* si le texte est long, la boîte défile */
+  overflow-y: auto;
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;    /* police */
+  background: rgba(20, 20, 40, 0.85);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.intro-boite h1 {
+  margin-top: 0;
+  font-size: 28px;            /* taille du titre */
+}
+
+.intro-boite p {
+  font-size: 17px;            /* taille du paragraphe */
+  line-height: 1.5;
+}
+
+#commencer {
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 17px;            /* taille du texte du bouton */
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #ff3b3b;
+  color: white;
+}
+
+/* ===== FICHE D'ENTRETIEN ===== */
+#fiche {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  width: 90%;
+  max-width: 500px;
+  max-height: 60vh;           /* si le texte est long, la fiche défile */
+  overflow-y: auto;
+  padding: 20px;
+  color: white;
+  font-family: sans-serif;    /* police */
+  font-size: 15px;            /* taille du texte */
+  background: rgba(20, 20, 40, 0.9);
+  border-radius: 12px;
+}
+
+#fiche h2 {
+  margin-top: 0;
+  font-size: 20px;            /* taille du titre de la fiche */
+}
+
+#fermer-fiche {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+/* ===== TEXTE DES POINTS CLIQUABLES (bulle au survol) ===== */
+.pnlm-tooltip span {
+  font-size: 12px !important;
+  padding: 3px 8px !important;
+  max-width: 160px !important;
 }
